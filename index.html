@@ -10,64 +10,35 @@
     <script>
         $(document).ready(function(){
 
-            var dict = {"stark": 362, "targaryen": 378, "lannister": 229, "baratheon": 15};
+            $('img').click(function(){
 
-            $.get('https://www.anapioficeandfire.com/api/houses?page=0', function(data){
-                console.log(data);
-            }
-            ,'json');
+                $('#details').empty();
 
+                var id =$(this).attr('id');
 
-        
+                $.get(`https://anapioficeandfire.com/api/houses/${id}`, function(data){
+                    var string = data.titles[0];
+                    for(var i = 1; i <data.titles.length; i++){
+                        string += "," + data.titles[i];
+                    }
 
-
-
+                    $('#details').append(`<h1>House Details</h1><h2>Name: ${data.name}</h2><h3>Words: ${data.words}</h3><h3>Titles: ${string}</h3>`);
+                },'json');
+            });
         });
     </script>
 </head>
 <body>
     <div id="wrapper">
         <div id="header">
-            <img src="images/stark.jpg" alt="stark">
-            <img src="images/targaryen.jpg" alt="targaryen">
-            <img src="images/lannister.jpg" alt="lannister">
-            <img src="images/baratheon.png" alt="baratheon">
+            <img src="images/stark.jpg" id="362" alt="stark">
+            <img src="images/targaryen.jpg" id="378" alt="targaryen">
+            <img src="images/lannister.jpg" id="229" alt="lannister">
+            <img src="images/baratheon.png" id="17" alt="baratheon">
         </div>
         <div id="details">
             <h1>House Details</h1>
-            <p>Name: House Targaryen</p>
         </div><!-- end of details div -->
     </div><!-- end of wrapper div -->
 </body>
 </html>
-
-
-<!-- "House Stark of Winterfell" -->
-<!-- https://www.anapioficeandfire.com/api/houses?name=House%20Stark%20of%20Winterfell -->
-<!-- https://www.anapioficeandfire.com/api/houses/362 -->
-
-
-
-<!-- House Targaryen of Dragonstone -->
-<!-- House Targaryen of King's Landing -->
-<!-- https://www.anapioficeandfire.com/api/houses/378 -->
-
-<!-- House Lannister of Casterly Rock -->
-<!-- https://www.anapioficeandfire.com/api/houses?name=House%20Lannister%20of%20Casterly%20Rock -->
-<!-- https://www.anapioficeandfire.com/api/houses/229 -->
-
-<!-- House Lannister of Lannisport -->
-<!-- https://www.anapioficeandfire.com/api/houses/231 -->
-
-<!-- House Lannister of Darry -->
-<!-- https://www.anapioficeandfire.com/api/houses/230 -->
-
-
-<!-- House Baratheon of Dragonstone -->
-<!-- https://www.anapioficeandfire.com/api/houses/15 -->
-
-<!-- House Baratheon of King's Landing -->
-<!-- https://www.anapioficeandfire.com/api/houses/16 -->
-
-<!-- House Baratheon of Storm's End --> 
-<!-- https://www.anapioficeandfire.com/api/houses/17 -->
