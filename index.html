@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Thrones</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var dict = {"stark": 362, "targaryen": 378, "lannister": 229, "baratheon": 15};
+
+            $.get('https://www.anapioficeandfire.com/api/houses?page=0', function(data){
+                console.log(data);
+            }
+            ,'json');
+
+
+        
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <img src="images/stark.jpg" alt="stark">
+            <img src="images/targaryen.jpg" alt="targaryen">
+            <img src="images/lannister.jpg" alt="lannister">
+            <img src="images/baratheon.png" alt="baratheon">
+        </div>
+        <div id="details">
+            <h1>House Details</h1>
+            <p>Name: House Targaryen</p>
+        </div><!-- end of details div -->
+    </div><!-- end of wrapper div -->
+</body>
+</html>
+
+
+<!-- "House Stark of Winterfell" -->
+<!-- https://www.anapioficeandfire.com/api/houses?name=House%20Stark%20of%20Winterfell -->
+<!-- https://www.anapioficeandfire.com/api/houses/362 -->
+
+
+
+<!-- House Targaryen of Dragonstone -->
+<!-- House Targaryen of King's Landing -->
+<!-- https://www.anapioficeandfire.com/api/houses/378 -->
+
+<!-- House Lannister of Casterly Rock -->
+<!-- https://www.anapioficeandfire.com/api/houses?name=House%20Lannister%20of%20Casterly%20Rock -->
+<!-- https://www.anapioficeandfire.com/api/houses/229 -->
+
+<!-- House Lannister of Lannisport -->
+<!-- https://www.anapioficeandfire.com/api/houses/231 -->
+
+<!-- House Lannister of Darry -->
+<!-- https://www.anapioficeandfire.com/api/houses/230 -->
+
+
+<!-- House Baratheon of Dragonstone -->
+<!-- https://www.anapioficeandfire.com/api/houses/15 -->
+
+<!-- House Baratheon of King's Landing -->
+<!-- https://www.anapioficeandfire.com/api/houses/16 -->
+
+<!-- House Baratheon of Storm's End --> 
+<!-- https://www.anapioficeandfire.com/api/houses/17 -->
